@@ -3,9 +3,7 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: [ uncover_qr ]
 
 jobs:
   build_ed25519:
