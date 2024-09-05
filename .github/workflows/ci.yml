@@ -9,7 +9,7 @@ on:
 jobs:
   build_ed25519:
     name: Build dependent library
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
         with:
@@ -30,7 +30,7 @@ jobs:
   run_tests:
     name: Run tests
     needs: build_ed25519
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master   
       - name: Download library
@@ -49,7 +49,7 @@ jobs:
   build_android:
     name: Build android app
     needs: run_tests
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
 
