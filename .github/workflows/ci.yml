@@ -36,6 +36,11 @@ jobs:
       - name: Download library
         uses: actions/download-artifact@v4
 
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '3.0.5'
+          channel: 'stable'
+
       - name: Set workspace in env
         run: echo "workspace=$GITHUB_WORKSPACE" >> $GITHUB_ENV
 
