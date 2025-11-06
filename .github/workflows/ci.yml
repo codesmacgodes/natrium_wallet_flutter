@@ -22,7 +22,7 @@ jobs:
           make
       - name: Upload artifact
         if: success()
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: libraries
           path: android/libed25519_blake2b.dylib
@@ -73,14 +73,14 @@ jobs:
 
       - name: Upload APK
         if: success()
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: android-apk
           path: build/app/outputs/apk/release/app-release.apk
 
       - name: Upload Bundle
         if: success()
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: android-aab
           path: build/app/outputs/bundle/release/app-release.aab
