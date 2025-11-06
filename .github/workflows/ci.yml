@@ -21,12 +21,13 @@ jobs:
           cmake .
           make
           find . -iname '*ed25519*' | head -n 10
+
       - name: Upload artifact
         if: success()
         uses: actions/upload-artifact@v4
         with:
           name: libraries
-          path: android/libed25519_blake2b.dylib
+          path: android/libed25519_blake2b.so
 
   run_tests:
     name: Run tests
@@ -47,7 +48,7 @@ jobs:
 
       - name: Run tests
         env:
-          ED215519_SO_FILE: ${{ env.workspace }}/libraries/libed25519_blake2b.dylib
+          ED215519_SO_FILE: ${{ env.workspace }}/libraries/libed25519_blake2b.so
         run: |
           flutter pub get
           flutter test
@@ -62,7 +63,7 @@ jobs:
       - name: Build artifacts
         working-directory: android
         env:
-          ED215519_SO_FILE: /Users/adapps/flutter_nano_ffi/android/libed25519_blake2b.dylib
+          ED215519_SO_FILE: /Users/adapps/flutter_nano_ffi/android/libed25519_blake2b.so
           FLUTTER_PATH: /Users/adapps/flutter
           ANDROID_SDK_PATH: /Users/adapps/Library/Android/Sdk
           GEM_HOME: ~/.gems
